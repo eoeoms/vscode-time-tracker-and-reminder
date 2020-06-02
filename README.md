@@ -1,14 +1,6 @@
-# Time Tracker & Reminder
+# Time Tracker
 
-Track your time using vscode editor, see log, and remind you pauses for blinking, standing up, or whatever.
-
-![](https://raw.githubusercontent.com/JanBN/vscode-time-tracker-and-reminder/master/assets/demo.gif)
-
-
-## What's new
-  - Log editor
-
-  ![](https://raw.githubusercontent.com/JanBN/vscode-time-tracker-and-reminder/master/assets/editor.jpg)
+Click the start / stop button on the status bar to track how much time you've spent on VS Code, categorized by workspace and git branch.
     
 ## Features
 
@@ -19,25 +11,23 @@ Track your time using vscode editor, see log, and remind you pauses for blinking
   - Detailed log (by days, weeks, months, years)
   - Editor for editing records (not very fast thought)
 
-  #### Reminders
-  - Periodic custom reminder 
-  - Countdown for next reminder
-  - Manually/auto start/end reminder
+#### Log editor
+  ![](https://raw.githubusercontent.com/JanBN/vscode-time-tracker-and-reminder/master/assets/editor.jpg)
 
 
 ## Commands
 
-**(Time Tracker & Reminder) Clear all time data** - Clears all time data
+**(Time Tracker) Clear all time data** - Clears all time data
 
-**(Time Tracker & Reminder) Toggle stop** - Stops/Starts counting time
+**(Time Tracker) Toggle stop** - Stops/Starts counting time
 
-**(Time Tracker & Reminder) Open & show data file** - Opens and shows file where data are saved
+**(Time Tracker) Open & show data file** - Opens and shows file where data are saved
 
-**(Time Tracker & Reminder) Show log** - Shows time spent log
+**(Time Tracker) Show log** - Shows time spent log
 
-**(Time Tracker & Reminder) Export log** - Export log into html file
+**(Time Tracker) Export log** - Export log into html file
 
-**(Time Tracker & Reminder) Edit log** - Log editor
+**(Time Tracker) Edit log** - Log editor
 
 
 ## Extension Settings
@@ -45,17 +35,16 @@ Track your time using vscode editor, see log, and remind you pauses for blinking
 ### Status bar
 
 ```
-"time-tracker.showTotalTime": false
-"time-tracker.showTotalWorkspaceTime": false,
+"time-tracker.showTotalTime": true
+"time-tracker.showTotalWorkspaceTime": true,
 "time-tracker.showTodayTime": true,
 "time-tracker.showFromStartTime": false,
-"time-tracker.showNextReminder": true,
 "time-tracker.trackGitBranch": false, // tracks also git branch names
 
-"time-tracker.onStatusbarBarClick": "show log" 
+"time-tracker.onStatusbarBarClick": "stop time tracking" 
 // possible values: "show log", "stop time tracking"
 
-"time-tracker.saveingOption": "on vscode exit and every 5 minutes" 
+"time-tracker.savingOption": "on vscode exit and every 5 minutes" 
 // possible values:
 // "on vscode exit",
 // "on vscode exit and every 5 minutes",
@@ -64,42 +53,12 @@ Track your time using vscode editor, see log, and remind you pauses for blinking
 // "on vscode exit and every 30 minutes"
 ```
 
-The value **on vscode exit** of **time-tracker.saveingOption** won't save correctly in case of pc restart or shutdow. In vscode there is a bug that it doesn't call extension deactivate in these cases. Therefore there are other options to save data also on period intervals.
-
-
-### Reminders
-```
-"time-tracker.reminders": "[{\"title\": \"Blink\",\"intervalMinutes\": 5,\"pauseMinutes\": 0,\"autoPause\": true,\"showCountDown\": true,\"autoStartAfterPause\": true},{\"title\": \"Look at distance\",\"intervalMinutes\": 18,\"pauseMinutes\": 0,\"autoPause\": true,\"showCountDown\": true,\"autoStartAfterPause\": true}]"
-```
-JSON string of reminders array. Prettified default value:
-
-```
-[
-    {
-        "title": "Blink",
-        "intervalMinutes": 5,
-        "pauseMinutes": 0,
-        "autoPause": true,
-        "showCountDown": true,
-        "autoStartAfterPause": true
-    },
-    {
-        "title": "Look at distance",
-        "intervalMinutes": 18,
-        "pauseMinutes": 0,
-        "autoPause": true,
-        "showCountDown": true,
-        "autoStartAfterPause": true
-    }
-]"
-```
-
-
+The value **on vscode exit** of **time-tracker.savingOption** won't save correctly in case of pc restart or shutdow. In vscode there is a bug that it doesn't call extension deactivate in these cases. Therefore there are other options to save data also on period intervals.
 
 
 ## How it works
 
-*Time Tracker & Reminder* saves time intervals to custom file. Time interval looks like this:
+*Time Tracker* saves time intervals to custom file. Time interval looks like this:
 ````
     {
         "start": 1552676228266,
@@ -107,9 +66,7 @@ JSON string of reminders array. Prettified default value:
         "end": 1552676579707
     }
 ````
-Then it can calculate how much time you have spent running vscode. It saves data into file on specified intervals in **time-tracker.saveingOption**. Until then it keeps intervals in variables so it access hdd only when really needed.
-
-There is a timer running every minute to update status bar. When the time until next reminder is less then 1.5 minutes it starts timer every seconds so you can see how many seconds until reminder in status bar. When the time is up it runs timer every minute again.
+Then it can calculate how much time you have spent running vscode. It saves data into file on specified intervals in **time-tracker.savingOption**. Until then it keeps intervals in variables so it access hdd only when really needed.
 
 When running multiple instances of vscode it finds intersected time intervals and consolidates them (split by intervals, joins them, merge etc). This means that counts are correct even when running multiple instances of vscode.
 

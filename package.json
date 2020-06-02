@@ -1,12 +1,12 @@
 {
-	"name": "time-tracker-and-reminder",
-	"displayName": "Time Tracker & Reminder",
-	"description": "Track your working time and remind your blink pauses",
-	"version": "1.12.0",
-	"publisher": "JanBn",
+	"name": "time-tracker",
+	"displayName": "Time Tracker",
+	"description": "Track your working time",
+	"version": "1.12.1",
+	"publisher": "eoeoms",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/JanBN/vscode-time-tracker-and-reminder"
+		"url": "https://github.com/eoeoms/vscode-time-tracker-and-reminder"
 	},
 	"engines": {
 		"vscode": "^1.1.30"
@@ -22,46 +22,41 @@
 		"commands": [
 			{
 				"command": "extension.clearAllData",
-				"title": "(Time Tracker & Reminder) Clear all time data"
+				"title": "(Time Tracker) Clear all time data"
 			},
 			{
 				"command": "extension.toggleStop",
-				"title": "(Time Tracker & Reminder) Toggle stop"
+				"title": "(Time Tracker) Toggle stop"
 			},
 			{
 				"command": "extension.showDataFile",
-				"title": "(Time Tracker & Reminder) Open & show data file"
+				"title": "(Time Tracker) Open & show data file"
 			},
 			{
 				"command": "extension.exportLog",
-				"title": "(Time Tracker & Reminder) Export log"
+				"title": "(Time Tracker) Export log"
 			},
 			{
 				"command": "extension.showLog",
-				"title": "(Time Tracker & Reminder) Show log"
+				"title": "(Time Tracker) Show log"
 			},
 			{
 				"command": "extension.editLog",
-				"title": "(Time Tracker & Reminder) Edit log"
+				"title": "(Time Tracker) Edit log"
 			}
 		],
 		"configuration": {
 			"type": "object",
-			"title": "Time Tracker & Reminder",
+			"title": "Time Tracker",
 			"properties": {
-				"time-tracker.reminders": {
-					"type": "string",
-					"default": "[{\"title\": \"Blink\",\"intervalMinutes\": 5,\"pauseMinutes\": 0,\"autoPause\": true,\"showCountDown\": true,\"autoStartAfterPause\": true},{\"title\": \"Look at distance\",\"intervalMinutes\": 18,\"pauseMinutes\": 0,\"autoPause\": true,\"showCountDown\": true,\"autoStartAfterPause\": true}]",
-					"description": "Reminders json array. See readme."
-				},
 				"time-tracker.showTotalTime": {
 					"type": "boolean",
-					"default": false,
+					"default": true,
 					"description": "Show total time in status bar"
 				},
 				"time-tracker.showTotalWorkspaceTime": {
 					"type": "boolean",
-					"default": false,
+					"default": true,
 					"description": "Show total workspace time in status bar"
 				},
 				"time-tracker.trackGitBranch": {
@@ -85,15 +80,10 @@
 						"stop time tracking",
 						"show log"
 					],
-					"default": "show log",
+					"default": "stop time tracking",
 					"description": "Status bar click action"
 				},
-				"time-tracker.showNextReminder": {
-					"type": "boolean",
-					"default": "true",
-					"description": "Show next reminder in status bar"
-				},
-				"time-tracker.saveingOption": {
+				"time-tracker.savingOption": {
 					"type": "string",
 					"enum": [
 						"on vscode exit",
