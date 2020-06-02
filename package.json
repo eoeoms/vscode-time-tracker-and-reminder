@@ -120,18 +120,18 @@
 		"vscode.git"
 	],
 	"devDependencies": {
-		"@types/node": "^8.10.25",
 		"@types/mocha": "^2.2.42",
+		"@types/node": "^8.10.61",
 		"ts-loader": "^4.4.2",
-		"tslint": "^5.8.0",
-		"typescript": "^3.3.3333",
-		"vscode": "^1.1.30",
-		"webpack": "^4.19.1",
-		"webpack-cli": "^3.1.0"
+		"tslint": "^5.20.1",
+		"typescript": "^3.9.3",
+		"vscode": "^1.1.37",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11"
 	},
 	"dependencies": {
-		"moment": "^2.22.2",
-		"moment-duration-format": "^2.2.2",
-		"vsce": "^1.58.0"
+		"moment": "^2.26.0",
+		"moment-duration-format": "^2.3.2",
+		"vsce": "^1.75.0"
 	}
 }
