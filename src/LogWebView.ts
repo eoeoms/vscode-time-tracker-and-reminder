@@ -296,7 +296,7 @@ export class LogWebView {
     tableRows.push(`
     <tr>
       <td style="min-width: 100px;"><b>${tableDateLabel}  </b></td>
-      <td style="min-width: 100px;"><b>Worspace</b></td> 
+      <td style="min-width: 100px;"><b>Workspace</b></td> 
       <td style="min-width: 100px;"><b>Time</b></td> 
     </tr>
     `);

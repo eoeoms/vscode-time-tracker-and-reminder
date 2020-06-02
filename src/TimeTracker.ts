@@ -36,7 +36,7 @@ export class TimeTracker {
         this._storage = new YearStorage(this._context);
         this.initGit();
 
-        this.startCurrentTimenterval();
+        this.startCurrentTimeInterval();
         this.createStatusBars();
 
         this.createInterval();
@@ -123,7 +123,7 @@ export class TimeTracker {
         return null;
     }
 
-    private startCurrentTimenterval(date?: number) {
+    private startCurrentTimeInterval(date?: number) {
         this._currentTimeInterval = {
             start: date ? date : Date.now(),
             workspace: this.getWorkspaceName()
@@ -140,14 +140,14 @@ export class TimeTracker {
     private gitBranchChanged() {
         this.endCurrentTimeInterval();
         this._storage.addTimeInterval(this._currentTimeInterval);
-        this.startCurrentTimenterval();
+        this.startCurrentTimeInterval();
         this.recomputeStatusBar();
     }
 
     private workspaceChanged() {
         this.endCurrentTimeInterval();
         this._storage.addTimeInterval(this._currentTimeInterval);
-        this.startCurrentTimenterval();
+        this.startCurrentTimeInterval();
         this.recomputeStatusBar();
     }
 
@@ -254,7 +254,7 @@ export class TimeTracker {
             this.recomputeStatusBar();
         }
         else {
-            this.startCurrentTimenterval();
+            this.startCurrentTimeInterval();
             vscode.window.showInformationMessage('Time tracker started');
             this.timeElapsed();
         }
@@ -286,7 +286,7 @@ export class TimeTracker {
         this.endCurrentTimeInterval(now);
         this._storage.saveAll();
         this._storage.initTimeIntervals();
-        this.startCurrentTimenterval(now);
+        this.startCurrentTimeInterval(now);
 
         this.recomputeStatusBar();
     }
