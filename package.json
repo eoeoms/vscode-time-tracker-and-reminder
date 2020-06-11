@@ -51,7 +51,7 @@
 			"properties": {
 				"time-tracker.showTotalTime": {
 					"type": "boolean",
-					"default": true,
+					"default": false,
 					"description": "Show total time in status bar"
 				},
 				"time-tracker.showTotalWorkspaceTime": {
@@ -61,7 +61,7 @@
 				},
 				"time-tracker.trackGitBranch": {
 					"type": "boolean",
-					"default": false,
+					"default": true,
 					"description": "Track git branch name"
 				},
 				"time-tracker.showTodayTime": {
@@ -77,10 +77,10 @@
 				"time-tracker.onStatusbarBarClick": {
 					"type": "string",
 					"enum": [
-						"stop time tracking",
+						"toggle time tracking",
 						"show log"
 					],
-					"default": "stop time tracking",
+					"default": "toggle time tracking",
 					"description": "Status bar click action"
 				},
 				"time-tracker.savingOption": {

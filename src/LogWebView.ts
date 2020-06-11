@@ -499,8 +499,8 @@ export class LogWebView {
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="min-width: 100px;">${this.getDurationInHoursOnly(todayMilliseconds)}${this.getFromatInDaysIfNeeded(todayMilliseconds)} </td>
-                        <td style="min-width: 100px;">${this.getDurationInHoursOnly(yesterdayMilliseconds)}${this.getFromatInDaysIfNeeded(yesterdayMilliseconds)} </td>
+                        <td style="min-width: 100px;">${this.getDurationInHoursOnly(todayMilliseconds)} ${this.getFromatInDaysIfNeeded(todayMilliseconds)}</td>
+                        <td style="min-width: 100px;">${this.getDurationInHoursOnly(yesterdayMilliseconds)} ${this.getFromatInDaysIfNeeded(yesterdayMilliseconds)}</td>
                         <td style="min-width: 100px;">${this.getDurationInHoursOnly(thisWeekMilliseconds)} ${this.getFromatInDaysIfNeeded(thisWeekMilliseconds)}</td>
                         <td style="min-width: 100px;">${this.getDurationInHoursOnly(last7DaysMilliseconds)} ${this.getFromatInDaysIfNeeded(last7DaysMilliseconds)}</td>
                         <td style="min-width: 100px;">${this.getDurationInHoursOnly(lastWeekMilliseconds)} ${this.getFromatInDaysIfNeeded(lastWeekMilliseconds)}</td>
@@ -537,13 +537,12 @@ for (i = 0; i < coll.length; i++) {
   }
 
   getDurationInHoursOnly(millis: number) {
-    const format = millis < 60 * 1000 ? "h[h] m[m] s[s]" : "h[h] m[m]";
-    return timeFormat.formatTimeFromMiliseconds(millis, format);
+    return timeFormat.formatTimeFromMilliseconds(millis, "h[h] m[m] s[s]");
   }
 
   getFromatInDaysIfNeeded(millis: number) {
     if (millis >= (this.ONE_DAY_MILLISECONDS)) {
-      return "(" + timeFormat.formatTimeFromMiliseconds(millis) + ")";
+      return "(" + timeFormat.formatTimeFromMilliseconds(millis) + ")";
     }
 
     return "";

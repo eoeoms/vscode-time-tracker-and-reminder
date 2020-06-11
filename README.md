@@ -35,14 +35,14 @@ Click the start / stop button on the status bar to track how much time you've sp
 ### Status bar
 
 ```
-"time-tracker.showTotalTime": true
+"time-tracker.showTotalTime": false
 "time-tracker.showTotalWorkspaceTime": true,
 "time-tracker.showTodayTime": true,
 "time-tracker.showFromStartTime": false,
-"time-tracker.trackGitBranch": false, // tracks also git branch names
+"time-tracker.trackGitBranch": true, // tracks also git branch names
 
-"time-tracker.onStatusbarBarClick": "stop time tracking" 
-// possible values: "show log", "stop time tracking"
+"time-tracker.onStatusbarBarClick": "toggle time tracking" 
+// possible values: "show log", "toggle time tracking"
 
 "time-tracker.savingOption": "on vscode exit and every 5 minutes" 
 // possible values:

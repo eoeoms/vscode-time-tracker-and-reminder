@@ -2,8 +2,8 @@
 import * as moment from 'moment';
 
 class TimeFormat {
-  formatTimeFromMiliseconds(miliseconds: number, format: string = null): string {
-    return this.formatTime(miliseconds / 1000, format);
+  formatTimeFromMilliseconds(milliseconds: number, format: string = null): string {
+    return this.formatTime(milliseconds / 1000, format);
   }
 
   formatTime(seconds: number, format: string = null): string {

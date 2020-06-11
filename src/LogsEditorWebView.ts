@@ -190,7 +190,7 @@ export class LogsEditorWebView {
 
   getDurationInHoursOnly(millis: number) {
     const format = millis < 60 * 1000 ? "h[h] m[m] s[s]" : "h[h] m[m]";
-    return timeFormat.formatTimeFromMiliseconds(millis, format);
+    return timeFormat.formatTimeFromMilliseconds(millis, format);
   }
 
 
